@@ -192,6 +192,17 @@ TARGET_USES_OLD_MNC_FORMAT := true
 # Security patch level
 VENDOR_SECURITY_PATCH := 2020-03-05
 
+# Dexpreopt
+ifeq ($(HOST_OS),linux)
+ifneq ($(TARGET_BUILD_VARIANT),eng)
+WITH_DEXPREOPT := true
+WITH_DEXPREOPT_DEBUG_INFO := false
+USE_DEX2OAT_DEBUG := false
+DONT_DEXPREOPT_PREBUILTS := true
+WITH_DEXPREOPT_PIC := true
+endif
+endif
+
 # SELinux
 include device/qcom/sepolicy-legacy-um/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
