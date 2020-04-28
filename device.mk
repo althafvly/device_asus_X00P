@@ -416,6 +416,9 @@ PRODUCT_BOOT_JARS += \
 # Inherit common proprietary files
 $(call inherit-product-if-exists, vendor/asus/X00P/X00P-vendor.mk)
 
+# Firmware
+$(call inherit-product, vendor/firmware-asus/X00P/firmware.mk)
+
 # Android GO Configs
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
 PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
